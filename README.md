@@ -1,79 +1,47 @@
 # MAFA Chemistry Attendance Analytics
 
-**A Streamlit data-visualization application for exploring a chemistry attendance dataset.**
-
-The application parses a structured text block of institution and student names into a pandas DataFrame, then presents attendance-oriented summary metrics and visualizations.
+A Streamlit dashboard that parses an institution/student text dataset into a pandas DataFrame and presents attendance-oriented summary metrics and Plotly visualizations.
 
 ## Features
-
-- Parses institution/student entries into tabular records.
+- Converts institution headings and hyphen-prefixed student entries into structured records.
 - Calculates total student records and distinct institutions.
 - Summarizes institution-level counts.
-- Uses Plotly for interactive data visualization.
-- Streamlit-based dashboard interface.
+- Displays interactive visualizations.
 
-## Technology
+## Stack
+Python, Streamlit, pandas, Plotly.
 
-Python, Streamlit, pandas, and Plotly.
-
-## Requirements
-
-- Python 3.9+
-- pip
-
-## Installation
-
+## Setup
 ```bash
 git clone https://github.com/nyohleonard-nlktech/mafa-chemistry-attendance.git
 cd mafa-chemistry-attendance
-
 python -m venv .venv
 ```
 
-Activate the environment:
-
+Activate:
 ```bash
 # macOS / Linux
 source .venv/bin/activate
-
 # Windows PowerShell
 .venv\Scripts\Activate.ps1
 ```
 
-Install dependencies:
-
+Install and run:
 ```bash
-python -m pip install --upgrade pip
 pip install -r requirements.txt
-```
-
-## Run
-
-```bash
 streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit (normally `http://localhost:8501`).
+Open the local URL printed by Streamlit (normally http://localhost:8501).
 
 ## Data format
+The current parser treats non-bulleted lines as institution names and hyphen-prefixed lines as student names. Preserve this format when replacing the source data, or update load_and_normalize_data() and add tests.
 
-The current source contains a multiline dataset where institution headings are followed by student entries prefixed with a hyphen. The parser treats non-bulleted lines as institution names and bulleted lines as student names.
-
-If you replace the dataset, preserve that format or update `load_and_normalize_data()` and its tests.
-
-## Project structure
-
+## Structure
 ```text
-.
-├── app.py
-├── requirements.txt
-└── README.md
+app.py
+requirements.txt
+README.md
 ```
 
-## Privacy note
-
-Attendance data can identify learners. Use anonymized or authorized data in public demonstrations. Do not publish personal student information without an appropriate lawful basis and permission.
-
-## License
-
-No license file is currently present. All rights reserved unless an explicit license is added.
+Attendance data can identify learners. Use only authorized data and anonymize records in public demos. No license file is present; all rights reserved unless an explicit license is added.
